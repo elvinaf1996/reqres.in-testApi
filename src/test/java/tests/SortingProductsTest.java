@@ -14,6 +14,7 @@ public class SortingProductsTest extends BaseTest {
 
         WearPage wearPage = new WearPage();
         wearPage.selectSortProduct("price:asc")
-                .checkFirstPrice("1 000");
+                .checkFirstPrice("1 000")
+                .checkSortProduct();
     }
 }
