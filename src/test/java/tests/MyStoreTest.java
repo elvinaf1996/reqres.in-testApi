@@ -26,7 +26,7 @@ public class MyStoreTest {
         driver.get("https://homebrandofficial.ru/wear");
     }
 
-    @Test
+//    @Test
     public void test() throws InterruptedException {
         String productName = "ФУТБОЛКА ПОЛО ЧЕРНАЯ (М)";
         String productCost = "2 800";
