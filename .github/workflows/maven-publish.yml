@@ -6,10 +6,10 @@ jobs:
     Explore-GitHub-Actions:
       runs-on: ubuntu-latest
       steps:
+      - uses: actions/checkout@v1
       - run: curl -s https://aerokube.com/cm/bash  | bash
       - run: chmod +x ./cm
       - run: ./cm selenoid start --vnc
       - run: ./cm selenoid-ui start
-      - run: mvn -B package --file pom.xml
-      - run: cd target
       - run: mvn clean test
+  
