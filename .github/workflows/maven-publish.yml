@@ -6,5 +6,8 @@ jobs:
     Explore-GitHub-Actions:
       runs-on: ubuntu-latest
       steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: docker --version
+      - run: curl -s https://aerokube.com/cm/bash  | bash
+      - run: chmod +x ./cm
+      - run: ./cm selenoid start --vnc
+      - run: ./cm selenoid-ui start
+      
