@@ -3,6 +3,7 @@ package api;
 import api.models.getResourse.GetResource;
 import api.models.getResourse.GetResources;
 import api.models.getUser.GetUser;
+import io.restassured.http.ContentType;
 
 import static api.SpecHelper.getRequestSpec;
 import static api.SpecHelper.getResponseSpec;

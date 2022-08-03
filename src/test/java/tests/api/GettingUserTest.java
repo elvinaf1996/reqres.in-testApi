@@ -44,9 +44,9 @@ public class GettingUserTest {
     @Test
     public void checkingGetUsers(){
         int page = 2;
-        int per_pag = 6;
+        int perPage = 6;
         int total = 12;
-        int total_pages = 2;
+        int totalPages = 2;
         ArrayList <UserData> userData = new ArrayList<> ();
         userData.add(new UserData(7, "michael.lawson@reqres.in", "Michael", "Lawson", "https://reqres.in/img/faces/7-image.jpg"));
         userData.add(new UserData(8, "lindsay.ferguson@reqres.in", "Lindsay", "Ferguson", "https://reqres.in/img/faces/8-image.jpg"));
@@ -57,9 +57,9 @@ public class GettingUserTest {
 
         GetUsers getUsers = UsersApi.getUsersSuccess(page);
         assertEquals(getUsers.getPage(), page);
-        assertEquals(getUsers.getPerPage(), per_pag);
+        assertEquals(getUsers.getPerPage(), perPage);
         assertEquals(getUsers.getTotal(), total);
-        assertEquals(getUsers.getTotalPages(), total_pages);
+        assertEquals(getUsers.getTotalPages(), totalPages);
         assertEquals(getUsers.getData(), userData);
         assertEquals(getUsers.getSupport(), support);
 

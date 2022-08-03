@@ -1,4 +1,4 @@
-package tests.api;
+package tests.api.done;
 
 import api.UsersApi;
 import api.models.createUser.CreateUser;

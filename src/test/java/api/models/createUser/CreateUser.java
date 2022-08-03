@@ -26,10 +26,4 @@ public class CreateUser {
     public String getJob() {
         return job;
     }
-
-    public CreateUser(String name, String job) {
-        this.name = name;
-        this.job = job;
-    }
-
 }

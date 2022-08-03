@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>homebrandofficial</artifactId>
+    <artifactId>myStoreApi</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -61,6 +61,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>5.1.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
