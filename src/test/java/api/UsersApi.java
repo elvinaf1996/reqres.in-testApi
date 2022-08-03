@@ -1,18 +1,19 @@
 package api;
 
-import api.models.createUser.CreateUserData;
-import api.models.getUser.User;
+import api.models.createUser.CreateUser;
+import api.models.getUser.GetUser;
+import api.models.getUser.GetUsers;
+import api.models.updateUser.UpdateUser;
 
 import static api.SpecHelper.getRequestSpec;
 import static api.SpecHelper.getResponseSpec;
-import static api.endpoints.UsersEndpoints.USER;
-import static api.endpoints.UsersEndpoints.USERS;
+import static api.endpoints.UsersEndpoints.*;
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.*;
 
 public class UsersApi {
 
-    public static User getUserSuccess(int userId) {
+    public static GetUser getUserSuccess(int userId) {
         return given()
                 .spec(getRequestSpec())
                 .when()
@@ -20,7 +21,7 @@ public class UsersApi {
                 .then()
                 .spec(getResponseSpec(SC_OK))
                 .extract()
-                .as(User.class);
+                .as(GetUser.class);
     }
 
     public static void getUserFail(int userId) {
@@ -32,34 +33,64 @@ public class UsersApi {
                 .spec(getResponseSpec(SC_NOT_FOUND));
     }
 
-    public static CreateUserData createUserSuccess(CreateUserData createUserData) {
+    public static CreateUser createUserSuccess(String name, String job) {
         return given()
                 .spec(getRequestSpec())
                 .when()
-                .body(createUserData)
+                .body(String.format("{\"name\": \"%s\", \"job\": \"%s\"}", name, job))
                 .post(USERS.getUrl())
                 .then()
                 .spec(getResponseSpec(SC_CREATED))
                 .extract()
-                .as(CreateUserData.class);
+                .as(CreateUser.class);
     }
 
-    public static void createUserFail(int name, int job) {
+
+    public static GetUsers getUsersSuccess(int pageNumber){
+        return given()
+                .spec(getRequestSpec())
+                .when()
+                .get(String.format(USERS_PAGE.getUrl(), pageNumber))
+                .then()
+                .spec(getResponseSpec(SC_OK))
+                .extract()
+                .as(GetUsers.class);
+    }
+
+    public static UpdateUser updateUserPutSuccess(UpdateUser updateUserData, int userId) {
+        return given()
+                .spec(getRequestSpec())
+                .when()
+                .body(updateUserData)
+                .put(USER.getUrl(), userId)
+                .then()
+                .spec(getResponseSpec(SC_OK))
+                .extract()
+                .as(UpdateUser.class);
+    }
+
+    public static UpdateUser updateUserPatchSuccess(UpdateUser updateUserData, int userId) {
+        return given()
+                .spec(getRequestSpec())
+                .when()
+                .body(updateUserData)
+                .patch(USER.getUrl(), userId)
+                .then()
+                .spec(getResponseSpec(SC_OK))
+                .extract()
+                .as(UpdateUser.class);
+    }
+
+    public static void deleteUserPatchSuccess(int userId){
         given()
                 .spec(getRequestSpec())
                 .when()
-                .body(String.format("{'name': '%s', 'job': '%s';}", name, job))
-                .post(USERS.getUrl())
+                .delete(String.format(USER.getUrl(), userId))
                 .then()
-                .spec(getResponseSpec(SC_BAD_REQUEST));
+                .spec(getResponseSpec(204));
+
     }
 
-    public static void createUserFail() {
-        given()
-                .spec(getRequestSpec())
-                .when()
-                .post(USERS.getUrl())
-                .then()
-                .spec(getResponseSpec(SC_BAD_REQUEST));
-    }
+
+
 }

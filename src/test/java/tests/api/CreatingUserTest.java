@@ -1,7 +1,7 @@
 package tests.api;
 
 import api.UsersApi;
-import api.models.createUser.CreateUserData;
+import api.models.createUser.CreateUser;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -10,25 +10,13 @@ public class CreatingUserTest {
 
     @Test
     public void checkingCreateUser() {
-        String name = "Alexey Besedin";
-        String job = "QA engineer";
+        String name = "morpheus";
+        String job = "leader";
 
-        CreateUserData createUserData = new CreateUserData(name, job);
-        CreateUserData actualCreateUserData = UsersApi.createUserSuccess(createUserData);
+        CreateUser actualCreateUser = UsersApi.createUserSuccess(name, job);
 
-        assertEquals(name, actualCreateUserData.getName());
-        assertEquals(job, actualCreateUserData.getJob());
+        assertEquals(actualCreateUser.getName(), name);
+        assertEquals(actualCreateUser.getJob(), job);
     }
 
-    @Test
-    public void failCreateUserWithoutBody() {
-        UsersApi.createUserFail();
-    }
-
-    @Test
-    public void failCreateUser() {
-        int name = 10;
-        int job = 10;
-        UsersApi.createUserFail(name, job);
-    }
 }

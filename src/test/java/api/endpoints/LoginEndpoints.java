@@ -5,10 +5,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum UsersEndpoints {
-    USER("/users/%s"),
-    USERS("/users"),
-    USERS_PAGE("/users?page=%S");
+public enum LoginEndpoints {
+    LOGIN("/login");
 
     private String url;
+
 }

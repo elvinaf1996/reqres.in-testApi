@@ -11,7 +11,7 @@ public class SpecHelper {
 
     private static final String BASE_URI = "https://reqres.in/api/";
 
-    public static RequestSpecification getRequestSpec() {
+    public static RequestSpecification getRequestSpec() { //запрос
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
                 .setContentType(ContentType.JSON)
@@ -19,7 +19,7 @@ public class SpecHelper {
                 .build();
     }
 
-    public static ResponseSpecification getResponseSpec(int httpStatus) {
+    public static ResponseSpecification getResponseSpec(int httpStatus) { //ответ
         return new ResponseSpecBuilder()
                 .expectStatusCode(httpStatus)
                 .log(LogDetail.ALL)
