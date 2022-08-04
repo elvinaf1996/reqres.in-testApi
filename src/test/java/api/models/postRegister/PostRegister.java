@@ -2,15 +2,13 @@ package api.models.postRegister;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@AllArgsConstructor
+@Data
 public class PostRegister {
-    @JsonProperty("email")
-    private String email;
-    @JsonProperty("password")
-    private String password;
-
+    @JsonProperty("id")
+    private int id;
+    @JsonProperty("token")
+    private String token;
 }

@@ -1,14 +1,11 @@
 package api.models.createUser;
 
-import api.models.dayOfCreateOrUpdate.DateOfChange;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-
-import java.time.LocalDate;
+import lombok.Data;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Getter
+@Data
 public class CreateUser {
     @JsonProperty("name")
     private String name;
@@ -18,12 +15,4 @@ public class CreateUser {
     private String id;
     @JsonProperty("createdAt")
     private String createdAt;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getJob() {
-        return job;
-    }
 }

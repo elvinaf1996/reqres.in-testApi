@@ -7,7 +7,7 @@ import org.junit.Test;
 public class DeleteUserTest {
     @Test
     public void checkingDeleteUser() {
-        int UsereId = 2;
+        int UserId = 2;
         UsersApi.deleteUserPatchSuccess(2);
     }
 }

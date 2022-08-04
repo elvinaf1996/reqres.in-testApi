@@ -16,6 +16,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class ResourceApi {
     public static GetResource getResourceSuccess(int resourceId) {
+        String path = RESOURCE.getUrl() + resourceId;
         return given()
                 .spec(getRequestSpec())
                 .when()
@@ -29,7 +30,7 @@ public class ResourceApi {
         return given()
                 .spec(getRequestSpec())
                 .when()
-                .get(String.format(RESOURCES.getUrl()))
+                .get(RESOURCES.getUrl())
                 .then()
                 .spec(getResponseSpec(SC_OK))
                 .extract()

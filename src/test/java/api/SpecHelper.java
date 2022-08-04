@@ -19,6 +19,7 @@ public class SpecHelper {
                 .build();
     }
 
+
     public static ResponseSpecification getResponseSpec(int httpStatus) { //ответ
         return new ResponseSpecBuilder()
                 .expectStatusCode(httpStatus)

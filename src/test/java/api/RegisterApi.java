@@ -1,7 +1,6 @@
 package api;
 
 import api.models.postRegister.PostRegister;
-import api.models.postRegister.PostRegisterAnswer;
 
 import static api.SpecHelper.getRequestSpec;
 import static api.SpecHelper.getResponseSpec;
@@ -11,19 +10,19 @@ import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.*;
 
 public class RegisterApi {
-    public static PostRegisterAnswer postRegisterAnswerSuccess(PostRegister postRegister){
+    public static PostRegister postRegisterSuccess(String email, String password){
         return given()
                 .spec(getRequestSpec())
                 .when()
-                .body(postRegister)
+                .body(String.format("{\"email\": \"%s\", \"password\": \"%s\"}",email, password))
                 .post(REGISTER.getUrl())
                 .then()
                 .spec(getResponseSpec(SC_OK))
                 .extract()
-                .as(PostRegisterAnswer.class);
+                .as(PostRegister.class);
     }
 
-    public static void PostRegisterAnswerFail(String email){
+    public static void PostRegisterFail(String email){
          given()
                 .spec(getRequestSpec())
                 .when()

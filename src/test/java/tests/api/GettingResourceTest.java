@@ -19,7 +19,11 @@ public class GettingResourceTest {
     @Test
     public void checkingGetResource() {
         int resourceId = 2;
-        ResourceData resourceData = new ResourceData(2, "fuchsia rose", 2001, "#C74375", "17-2031");
+        String name = "fuchsia rose";
+        int year = 2001;
+        String color = "C74375";
+        String pantoneValue = "17-2031";
+        ResourceData resourceData = new ResourceData(resourceId, name, year, color, pantoneValue);
 
         GetResource getResource = ResourceApi.getResourceSuccess(resourceId);
 
@@ -38,7 +42,7 @@ public class GettingResourceTest {
         int page = 1;
         int per_page = 6;
         int total = 12;
-        int total_pages = 2;
+        int totalPages = 2;
         ArrayList<ResourceData> resourceData = new ArrayList<> ();
         resourceData.add(new ResourceData(1, "cerulean", 2000, "#98B2D1", "15-4020"));
         resourceData.add(new ResourceData(2, "fuchsia rose", 2001, "#C74375", "17-2031"));
@@ -50,7 +54,7 @@ public class GettingResourceTest {
         assertEquals(getResources.getPage(), page);
         assertEquals(getResources.getPerPage(), per_page);
         assertEquals(getResources.getTotal(), total);
-        assertEquals(getResources.getTotalPages(), total_pages);
+        assertEquals(getResources.getTotalPages(), totalPages);
         assertEquals(getResources.getData(), resourceData);
         assertEquals(getResources.getSupport(), support);
 

@@ -1,7 +1,6 @@
 package api;
 
 import api.models.postLogin.PostLogin;
-import api.models.postLogin.PostLoginAnswer;
 
 import static api.SpecHelper.getRequestSpec;
 import static api.SpecHelper.getResponseSpec;
@@ -11,16 +10,16 @@ import static org.apache.http.HttpStatus.*;
 
 public class LoginApi {
 
-    public static PostLoginAnswer postLoginAnswerSuccess(PostLogin postLogin){
+    public static PostLogin postLoginAnswerSuccess(String email, String password){
         return given()
                 .spec(getRequestSpec())
                 .when()
-                .body(postLogin)
+                .body(String.format("{\"email\": \"%s\", \"password\": \"%s\"}",email, password))
                 .post(LOGIN.getUrl())
                 .then()
                 .spec(getResponseSpec(SC_OK))
                 .extract()
-                .as(PostLoginAnswer.class);
+                .as(PostLogin.class);
     }
 
     public static void  postLoginAnswerFail(String email){

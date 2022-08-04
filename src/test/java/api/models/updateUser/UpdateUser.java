@@ -2,12 +2,13 @@ package api.models.updateUser;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
+import lombok.Data;
 
 import java.time.LocalDate;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Getter
+@Data
+
 public class UpdateUser {
     @JsonProperty("name")
     private String name;

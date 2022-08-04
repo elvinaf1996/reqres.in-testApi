@@ -4,11 +4,12 @@ import api.Support;
 import api.models.getUser.UserData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.ArrayList;
 
-@Getter
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GetResources {
     @JsonProperty("page")

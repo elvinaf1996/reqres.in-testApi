@@ -3,12 +3,11 @@ package api.models.getUser;
 import api.Support;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-
+import lombok.Data;
 import java.util.ArrayList;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Getter
+@Data
 public class GetUsers {
     @JsonProperty("page")
     private int page;
