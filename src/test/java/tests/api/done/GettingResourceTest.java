@@ -1,4 +1,4 @@
-package tests.api;
+package tests.api.done;
 
 import api.ResourceApi;
 import api.Support;
@@ -21,7 +21,7 @@ public class GettingResourceTest {
         int resourceId = 2;
         String name = "fuchsia rose";
         int year = 2001;
-        String color = "C74375";
+        String color = "#C74375";
         String pantoneValue = "17-2031";
         ResourceData resourceData = new ResourceData(resourceId, name, year, color, pantoneValue);
 
@@ -46,7 +46,8 @@ public class GettingResourceTest {
         ArrayList<ResourceData> resourceData = new ArrayList<> ();
         resourceData.add(new ResourceData(1, "cerulean", 2000, "#98B2D1", "15-4020"));
         resourceData.add(new ResourceData(2, "fuchsia rose", 2001, "#C74375", "17-2031"));
-        resourceData.add(new ResourceData(3, "aqua sky", 2003, "#7BC4C4", "14-4811"));
+        resourceData.add(new ResourceData(3, "true red", 2002, "#BF1932", "19-1664"));
+        resourceData.add(new ResourceData(4, "aqua sky", 2003, "#7BC4C4", "14-4811"));
         resourceData.add(new ResourceData(5, "tigerlily", 2004, "#E2583E", "17-1456"));
         resourceData.add(new ResourceData(6, "blue turquoise", 2005, "#53B0AE", "15-5217"));
 

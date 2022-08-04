@@ -1,4 +1,4 @@
-package tests.api;
+package tests.api.done;
 
 import api.Support;
 import api.UsersApi;

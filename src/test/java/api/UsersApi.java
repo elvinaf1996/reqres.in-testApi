@@ -36,8 +36,8 @@ public class UsersApi {
     public static CreateUser createUserSuccess(String name, String job) {
         return given()
                 .spec(getRequestSpec())
-                .body(String.format("{\"name\": \"%s\", \"job\": \"%s\"}", name, job))
                 .when()
+                .body(String.format("{\"name\": \"%s\", \"job\": \"%s\"}", name, job))
                 .post(USERS.getUrl())
                 .then()
                 .spec(getResponseSpec(SC_CREATED))
@@ -58,24 +58,24 @@ public class UsersApi {
                 .as(GetUsers.class);
     }
 
-    public static UpdateUser updateUserPutSuccess(UpdateUser updateUserData, int userId) {
+    public static UpdateUser updateUserPutSuccess(String name, String job, int userId) {
         return given()
                 .spec(getRequestSpec())
                 .when()
-                .body(updateUserData)
-                .put(USER.getUrl(), userId)
+                .body(String.format("{\"name\": \"%s\", \"job\": \"%s\"}", name, job))
+                .put(String.format(USER.getUrl(), userId))
                 .then()
                 .spec(getResponseSpec(SC_OK))
                 .extract()
                 .as(UpdateUser.class);
     }
 
-    public static UpdateUser updateUserPatchSuccess(UpdateUser updateUserData, int userId) {
+    public static UpdateUser updateUserPatchSuccess(String name, String job, int userId) {
         return given()
                 .spec(getRequestSpec())
                 .when()
-                .body(updateUserData)
-                .patch(USER.getUrl(), userId)
+                .body(String.format("{\"name\": \"%s\", \"job\": \"%s\"}", name, job))
+                .patch(String.format(USER.getUrl(), userId))
                 .then()
                 .spec(getResponseSpec(SC_OK))
                 .extract()

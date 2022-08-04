@@ -1,4 +1,4 @@
-package tests.api;
+package tests.api.done;
 
 import api.UsersApi;
 import api.models.updateUser.UpdateUser;
@@ -12,9 +12,8 @@ public class UpdateUserTest {
         int userId = 2;
         String name = "morpheus";
         String job = "zion resident";
-        UpdateUser updateUser = new UpdateUser(name,job);
 
-        UpdateUser user = UsersApi.updateUserPutSuccess(updateUser, userId);
+        UpdateUser user = UsersApi.updateUserPutSuccess(name, job, userId);
 
         assertEquals(user.getJob(), job);
         assertEquals(user.getName(), name);
@@ -25,9 +24,8 @@ public class UpdateUserTest {
         int userId = 2;
         String name = "morpheus";
         String job = "zion resident";
-        UpdateUser updateUser = new UpdateUser(name,job);
 
-        UpdateUser user = UsersApi.updateUserPatchSuccess(updateUser, userId);
+        UpdateUser user = UsersApi.updateUserPatchSuccess(name, job, userId);
 
         assertEquals(user.getJob(), job);
         assertEquals(user.getName(), name);
